@@ -95,9 +95,10 @@ public class TodoController {
 				System.out.println("삭제할 TODO key를 입력하세요.");
 				int key = scan.nextInt();
 				scan.nextLine();
+				boolean todo = service.delete(key);
 			}
 			else if(menu == 6) {
-					
+				boolean todo = service.deleteAll();
 			}
 			else if(menu == 7) {
 					System.out.println("종료되었습니다.");
