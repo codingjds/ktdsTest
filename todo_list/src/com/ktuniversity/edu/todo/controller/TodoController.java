@@ -27,10 +27,12 @@ public class TodoController {
 		while(true) {
 			System.out.println("=============");
 			System.out.println("1. 등록");
-			System.out.println("2. 수정");
-			System.out.println("3. 삭제");
-			System.out.println("4. 조회");
-			System.out.println("5. 종료");
+			System.out.println("2. 선택조회");
+			System.out.println("3. 전부조회");
+			System.out.println("4. 수정");
+			System.out.println("5. 선택삭제");
+			System.out.println("6. 전부삭제");
+			System.out.println("7. 종료");
 			System.out.println("=============");
 			System.out.println("메뉴를 입력하세요:");
 		
@@ -86,19 +88,20 @@ public class TodoController {
 					}
 					if(isSuccess) {
 						System.out.println("처리되었습니다.");
-					}
-						
-					}
-				}
-				else if(menu == 5) {
+					}	
+				}//수정여부확인
+			}//menu==4
+			else if(menu == 5) {
+				System.out.println("삭제할 TODO key를 입력하세요.");
+				int key = scan.nextInt();
+				scan.nextLine();
+			}
+			else if(menu == 6) {
 					
-				}
-				else if(menu == 6) {
-					
-				}
-				else if(menu == 7) {
-					
-				}
+			}
+			else if(menu == 7) {
+					System.out.println("종료되었습니다.");
+			}
 		}
 	}
 }
