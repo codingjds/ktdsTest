@@ -22,4 +22,13 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> readAll() {
 		return memberDAO.readAll();
 	}
+	@Override
+	public MemberVO read(String id) {
+		return memberDAO.read(id);
+	}
+	@Override
+	public MemberVO read(int key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

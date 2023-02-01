@@ -10,5 +10,10 @@ public interface MemberDAO {
 	
 	public List<MemberVO> readAll();
 	
+	public MemberVO read(int key);
+	public MemberVO read(String id);
 	
+	
+	
+
 }

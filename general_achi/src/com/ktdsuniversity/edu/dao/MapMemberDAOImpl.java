@@ -28,5 +28,13 @@ public class MapMemberDAOImpl implements MemberDAO{
 						.map(entry -> entry.getValue())
 						.collect(Collectors.toList());
 	}
-
+	@Override
+	public MemberVO read(String id) {
+		return dataSource.get(id);
+	}
+	@Override
+	public MemberVO read(int key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

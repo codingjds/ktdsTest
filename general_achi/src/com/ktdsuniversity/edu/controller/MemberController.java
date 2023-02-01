@@ -41,6 +41,12 @@ public class MemberController {
 			System.out.println(eachMember.getReadNumber());
 			System.out.println(eachMember.getPageNumber());
 		}
+		
+		MemberVO aa = service.read("id2");
+		System.out.println(aa.getId());
+		System.out.println(aa.getPassword());
+		System.out.println(aa.getReadNumber());
+		System.out.println(aa.getPageNumber());
 		//02.01 과제
 		//memberService memberDAO | List,Map 둘다 호환되면서 read() 하나만 조회하는거 만들기 
 		//==> Method Overloading : 똑같은 메소드인데 파라미터만 다른 거임

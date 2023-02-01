@@ -9,6 +9,7 @@ public class ListMemberDAOImpl implements MemberDAO{
 	
 	private List<MemberVO> dataSource;
 	
+	
 	public ListMemberDAOImpl() {
 		dataSource = new ArrayList<>();
 	}
@@ -23,6 +24,14 @@ public class ListMemberDAOImpl implements MemberDAO{
 	public List<MemberVO> readAll() {
 		return dataSource;
 	}
-	 
+	@Override
+	public MemberVO read(int key) {
+		return dataSource.get(key);
+	}
+	@Override
+	public MemberVO read(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
