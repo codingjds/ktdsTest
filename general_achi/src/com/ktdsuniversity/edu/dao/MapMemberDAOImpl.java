@@ -28,13 +28,23 @@ public class MapMemberDAOImpl implements MemberDAO{
 						.map(entry -> entry.getValue())
 						.collect(Collectors.toList());
 	}
+	
 	@Override
 	public MemberVO read(String id) {
 		return dataSource.get(id);
 	}
-	@Override
-	public MemberVO read(int key) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	//MemberDAO에서 read메소드를 public defalt 해서 바디{}를 생성하면
+	//오버라이딩할떄 불필요한 메소드가 줄어든다
+	
+	
+//	@Override
+//	public MemberVO read(String id) {
+//		return dataSource.get(id);
+//	}
+//	@Override
+//	public MemberVO read(int key) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+	
 }
