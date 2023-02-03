@@ -61,7 +61,7 @@ public class Calculator {
 		
 		//double로 변경
 //		double d = NumberUtil.toDouble(string);
-		double d = NumberUtil.toDouble(string, (double)1000);
+		double d = NumberUtil.toDouble(string, (double)444);
 		System.out.println("double 변환값: " +d);
 		
 		

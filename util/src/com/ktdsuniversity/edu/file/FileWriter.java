@@ -41,7 +41,7 @@ public class FileWriter {
 			try {
 				fos = new FileOutputStream(textFile);
 //8				OutputStream fos = new FileOutputStream(textFile);
-				fos.write("파일 내용을 씁니".getBytes());//byte만 들어가더라도 String.getBytes()로 넣으면 들어가진다.
+				fos.write("파일 내용을 씁니다".getBytes());//byte만 들어가더라도 String.getBytes()로 넣으면 들어가진다.
 				fos.flush();
 				fos.close();
 			} catch (FileNotFoundException e) {
