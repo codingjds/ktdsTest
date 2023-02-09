@@ -228,11 +228,18 @@ public class Test0209 {
 		//정수형 배열 인덱스의 개수는 50개
 		int[] number = new int[50];
 		Random random2 = new Random();	
+		//값을 할당
 		for(int i = 0 ; i < 50 ; i++) {
 			number[i] = random2.nextInt(50);
-			System.out.println(number[i]);
 		}
-		
+		System.out.println("------------");
+		//값을 참조
+		for(int i = 0 ; i < 50 ; i++) {
+//			System.out.println(number[i]);	
+			if (((number[i] % 3) == 0 ) && (number[i] != 0)) {
+				System.out.println(number[i]);
+			}
+		}
 		
 		
 		
