@@ -230,6 +230,7 @@ public class Test0209 {
 		Random random2 = new Random();	
 		for(int i = 0 ; i < 50 ; i++) {
 			number[i] = random2.nextInt(50);
+			System.out.println(number[i]);
 		}
 		
 		
