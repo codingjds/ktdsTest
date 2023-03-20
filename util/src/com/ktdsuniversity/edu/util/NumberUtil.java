@@ -5,7 +5,7 @@ package com.ktdsuniversity.edu.util;
  *
  */
 public abstract class NumberUtil {
-	
+
 	private NumberUtil() {}
 	
 	public static byte toByte(String string) {
@@ -15,7 +15,6 @@ public abstract class NumberUtil {
 		catch(NumberFormatException nfe){
 			return 0;	//변환값을 바꿔야하는 경우 오버로딩메소드
 		}
-		
 	}
 	
 	public static byte toByte(String string, byte defaultByte) {
