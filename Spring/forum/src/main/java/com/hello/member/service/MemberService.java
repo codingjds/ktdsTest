@@ -6,5 +6,7 @@ public interface MemberService {
 	
 	public boolean createNewMember(MemberVO memberVO);
 	
+	public int readCountMemberByEmail(String email);
+	
 	public MemberVO readOneMemberByEmailAndPassword(MemberVO memberVO);
 }

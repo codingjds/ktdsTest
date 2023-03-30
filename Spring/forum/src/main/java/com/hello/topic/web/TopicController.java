@@ -14,10 +14,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hello.common.handler.DownloadUtil;
-import com.hello.common.handler.UploadHandler;
+import com.hello.member.vo.MemberVO;
 import com.hello.member.web.MemberController;
 import com.hello.topic.service.TopicService;
 import com.hello.topic.vo.TopicVO;
@@ -28,10 +29,7 @@ public class TopicController {
 	
 	@Autowired
 	private TopicService topicService;
-	
-	@Autowired
-	private UploadHandler uploadHandler;	//Component화 되있기 때문에 가능
-	
+		
 	@Value("")
 	private String uploadPath;
 
@@ -48,7 +46,7 @@ public class TopicController {
 //		System.out.println("URL 변수 topicId의 값: " + topicId);
 		logger.info("URL 변수 topicId의 값: {}", topicId);
 		
-		Integer.parseInt("ABC");
+//		Integer.parseInt("ABC");
 		
 		TopicVO topic = topicService.readOneTopicByTopicId(topicId);
 		model.addAttribute("topic", topic);
@@ -62,8 +60,11 @@ public class TopicController {
 	}
 	
 	@PostMapping("/topic/write")
-	public String doTopicWrite(TopicVO topicVO, List<MultipartFile> uploadFile) {
+	public String doTopicWrite(TopicVO topicVO, 
+								List<MultipartFile> uploadFile,
+								@SessionAttribute("__USER_SESSION_DATA__") MemberVO memberVO) {
 		
+		topicVO.setEmail(memberVO.getEmail());
 		
 //		// 파일 업로드 처리
 //		// 파일 업로드 했는지 확인
@@ -92,13 +93,12 @@ public class TopicController {
 //				throw new RuntimeException("파일을 업로드 할 수 없습니다!");
 //			}
 //			// topicVO에 업로드된 파일을 이동시키기
-//			topicVO.setFileName(uuidFileName); // 난수화된 파일의 이름
 //			topicVO.setOriginFileName(oringinFileName); // 업로드된 실제 파일의 이름
 //		}
 		
-		boolean createResult = topicService.createNewTopic(topicVO);
+		boolean createResult = topicService.createNewTopic(topicVO, uploadFile);
 
-		uploadHandler.upload(uploadFile, topicVO.getId());
+//		uploadHandler.upload(uploadFile, topicVO.getId());
 		
 		if(!createResult) {
 			return "topic/write";
@@ -123,7 +123,9 @@ public class TopicController {
 	}
 	
 	@PostMapping("/topic/update/{topicId}")
-	public String doTopicUpdate(@PathVariable int topicId, TopicVO topicVO) {
+	public String doTopicUpdate(@PathVariable int topicId, 
+								TopicVO topicVO,
+								@SessionAttribute("__USER_SESSION_DATA__") MemberVO memberVO) {
 		topicVO.setId(topicId);
 		boolean updateResult =topicService.updateOneTopic(topicVO);
 		

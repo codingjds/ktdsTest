@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css/">
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/query-3.6.4.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
 	$().ready(function(){
 	});
@@ -15,7 +15,8 @@
 </head>
 <body>
 	
-	<img src="${pageContext.request.contextPath}/img/temp/Instagram-Icon.png" style="width: 20px" height="20px" />
+	<a href="${pageContext.request.contextPath}/member/logout">로그아웃</a>
+	<img src="${pageContext.request.contextPath}/img/temp/Instagram-Icon.jpg" style="width: 500px" height="500px" />
 	
 	<h1>Topics</h1>
 	

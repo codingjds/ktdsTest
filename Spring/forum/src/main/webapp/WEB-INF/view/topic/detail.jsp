@@ -32,13 +32,9 @@
 	<hr/>
 	
 		<form action="${pageContext.request.contextPath}/topic/reply/create" method="post">
-			<input type="text" name="topicId" value="${topic.id}" />
-			<input type="text" name="prntReplyId" />
+			<input type="hidden" name="topicId" value="${topic.id}" />
+			<input type="hidden" name="prntReplyId" value= 0 />
 			
-			<div>
-				<label for="email">작성자 이메일</label>
-				<input type="email" name="email" id="email" />
-			</div>
 			<div>
 				<label for="reply">댓글 내용</label>
 				<textarea name="reply" id="reply"></textarea>

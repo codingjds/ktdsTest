@@ -24,14 +24,7 @@
 				   value= "${topic.subject}"
 				   placeholder="제목입력." />
 		</div>
-		<div>
-			<label for="email">이메일</label>
-			<input type="email" 
-				   name="email" 
-				   id="email"
-				   value= "${topic.email}"
-				   placeholder="이메일" />
-		</div>
+	
 		<div>
 			<label for="content">내용</label>
 			<textarea name="content" 

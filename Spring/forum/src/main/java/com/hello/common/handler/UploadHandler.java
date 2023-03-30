@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.hello.attachfile.service.AttachFileService;
+import com.hello.attachfile.dao.AttachFileDAO;
 import com.hello.attachfile.vo.AttachFileVO;
 
 @Component
@@ -20,7 +20,8 @@ public class UploadHandler {
 	private String uploadPath;
 	
 	@Autowired
-	private AttachFileService attachFileService;
+	private AttachFileDAO attachFileDAO;
+//	private AttachFileService attachFileService;
 	
 	public void upload(List<MultipartFile> multipartFileList, int topicId) {
 		
@@ -70,7 +71,7 @@ public class UploadHandler {
 			String ext = oringinFileName.substring(oringinFileName.lastIndexOf(".")+1);
 			attachFileVO.setFileExt(ext);
 			
-			attachFileService.createAttachFile(attachFileVO);
+			attachFileDAO.createAttachFile(attachFileVO);
 			
 //			// topicVO에 업로드된 파일을 이동시키기
 //			abstractVO.setFileName(uuidFileName); // 난수화된 파일의 이름
